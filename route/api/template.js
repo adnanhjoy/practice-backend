@@ -117,15 +117,15 @@ router.get("/test", (req, res) => {
 // @route GET api/template
 // @desc Get all the templates
 // @access Public
-router.get("/", async(req, res) => {
+router.get("/", async (req, res) => {
     const errors = {};
-try {
-    const template = await Template.find().sort({ date: -1 });
-    res.json(template);
-} catch (error) {
+    try {
+        const template = await Template.find().sort({ date: -1 });
+        res.json(template);
+    } catch (error) {
 
-    res.status(400).json(error);
-}
+        res.status(400).json(error);
+    }
     // Template.find().sort({ createdAt: -1 })
     //     .then((template) => {
     //         if (!template) {
@@ -140,7 +140,7 @@ try {
     //         res.status(400).json(err);
     //     })
 
-        
+
 })
 // @route GET api/template/query
 // @desc GET a template via field
@@ -285,15 +285,39 @@ router.post(
 // @route Delete api/template/:id
 // @desc Delete a template
 // @access Public
-router.delete("/:id", async(req, res) => {
+router.delete("/:id", async (req, res) => {
     try {
-        const data = await Template.findByIdAndDelete({_id: req.params.id});
+        const data = await Template.findByIdAndDelete({ _id: req.params.id });
         res.status(200).json({
             success: true,
             data: data
         })
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({ message: error.message })
+    }
+})
+
+
+//update route
+
+router.put('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updateTemplate = await Template.findByIdAndUpdate(
+            { _id: id },
+            {
+                $set: {
+                    ...req.body
+                }
+            },
+            { new: true });
+
+        res.status(200).json({
+            success: true,
+            data: updateTemplate
+        })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
     }
 })
 
