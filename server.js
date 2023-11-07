@@ -26,6 +26,7 @@ const template = require("./route/api/template");
 const post = require("./route/api/post");
 const admin = require("./route/api/admin");
 const order = require("./route/api/order");
+const comment = require("./route/api/comment");
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -55,6 +56,7 @@ app.use("/api/template", template);
 app.use("/api/post", post);
 app.use("/api/admin", admin);
 app.use("/api/order", order);
+app.use("/api/comment", comment);
 
 /*
 app.post('/payment/success', function (req, res) {

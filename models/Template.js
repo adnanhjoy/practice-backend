@@ -159,7 +159,13 @@ const TemplateSchema = new Schema({
     activate: {
         type: Boolean,
         default: false
-    }
+    },
+    comment: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 })
 
 
