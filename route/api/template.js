@@ -189,7 +189,7 @@ router.get("/query/:name", (req, res) => {
 // @desc Get template by id
 // @access Public
 router.get("/:id", async (req, res) => {
-    console.log(req.params.id)
+    // console.log(req.params.id)
     try {
         const template = await Template.findOne({ _id: req.params.id });
         res.json({ template, message: "Success" });
@@ -300,9 +300,10 @@ router.delete("/:id", async (req, res) => {
 
 //update route
 
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
         const id = req.params.id;
+        console.log(res.body)
         const updateTemplate = await Template.findByIdAndUpdate(
             { _id: id },
             {
