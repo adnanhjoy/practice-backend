@@ -76,7 +76,7 @@ const TemplateSchema = new Schema({
             default: false
         },
         installationPrice: {
-            type: Number
+            type: String
         },
         installationDeadline: {
             type: String
@@ -86,7 +86,7 @@ const TemplateSchema = new Schema({
             default: false
         },
         conversionPrice: {
-            type: Number
+            type: String
         },
         conversionDeadline: {
             type: String
@@ -96,7 +96,7 @@ const TemplateSchema = new Schema({
             default: false
         },
         customizationPrice: {
-            type: Number
+            type: String
         },
         customizationDeadline: {
             type: String
@@ -106,7 +106,7 @@ const TemplateSchema = new Schema({
             default: false
         },
         seoPrice: {
-            type: Number
+            type: String
         },
         seoDeadline: {
             type: String
@@ -116,7 +116,7 @@ const TemplateSchema = new Schema({
             default: false
         },
         emailMarketingPrice: {
-            type: Number
+            type: String
         },
         emailMarketingDeadline: {
             type: String
@@ -126,7 +126,7 @@ const TemplateSchema = new Schema({
             default: false,
         },
         logoPrice: {
-            type: Number
+            type: String
         },
         logoDeadline: {
             type: String
@@ -136,7 +136,7 @@ const TemplateSchema = new Schema({
             default: false
         },
         contentAddPrice: {
-            type: Number
+            type: String
         },
         contentAddDeadline: {
             type: String

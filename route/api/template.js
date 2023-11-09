@@ -120,28 +120,23 @@ router.get("/test", (req, res) => {
 router.get("/", async (req, res) => {
     const errors = {};
     try {
-        const template = await Template.find().sort({ date: -1 });
-        res.json(template);
-    } catch (error) {
+        const rating = req.query.rating;
+        const price = req.query.price;
+        const features = req.query.features;
+        const andCondition = [];
+        if (rating) andCondition.push({ rating: { $gte: rating } });
+        if (price) andCondition.push({ price: { $gte: price } });
+        if (features) andCondition.push({ features: features });
+        const whereCondition = andCondition?.length > 0 ? { $and: andCondition } : {};
+        const result = await Template.find(whereCondition).sort({ date: -1 });
 
+        res.status(200).json(result);
+
+    } catch (error) {
         res.status(400).json(error);
     }
-    // Template.find().sort({ createdAt: -1 })
-    //     .then((template) => {
-    //         if (!template) {
-    //             error.noTemplate = "There are no templates"
-    //             res.status(400).json(errors)
-    //         }
-    //         else {
-    //             res.json(template);
-    //         }
-    //     })
-    //     .catch(err => {
-    //         res.status(400).json(err);
-    //     })
+});
 
-
-})
 // @route GET api/template/query
 // @desc GET a template via field
 // @access Public
