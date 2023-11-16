@@ -38,6 +38,7 @@
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "sslcommerz-lts": "^1.1.0",
     "sslcommerz-nodejs": "^1.0.8",
     "validator": "^13.1.17"
   }
