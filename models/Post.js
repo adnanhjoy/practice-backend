@@ -30,7 +30,7 @@ const PostSchema = new Schema({
       },
       comment: {
         type: String,
-        required: true
+        // required: true
       },
       date: {
         type: Date,
