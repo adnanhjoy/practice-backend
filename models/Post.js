@@ -8,7 +8,7 @@ const PostSchema = new Schema({
   },
   topic : {
     type : String,
-    required : true
+    // required : true
   },
   question : {
     type : String,
