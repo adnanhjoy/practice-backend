@@ -56,7 +56,7 @@ const WorkSchema = new Schema({
     },
     skills : {
         type : [String],
-        required : true
+        // required : true
     },
     apply : [
         {
