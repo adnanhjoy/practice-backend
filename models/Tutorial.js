@@ -46,6 +46,20 @@ const TutorialSchema = new Schema({
   tutorialVideo: {
     type: String,
   },
+  facilities: [
+    {
+      type: String
+    }
+  ],
+  courseModule: [
+    {
+      type: String
+    }
+  ],
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 module.exports = Tutorial = mongoose.model("tutorial", TutorialSchema);

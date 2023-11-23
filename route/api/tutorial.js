@@ -57,6 +57,7 @@ router.get("/", (req, res) => {
   const errors = {};
 
   Tutorial.find()
+    .sort({ date: -1 })
     .then((tutorials) => {
       if (!tutorials) {
         errors.notutorials = "No tutorials found";
@@ -166,7 +167,6 @@ router.post('/', async (req, res) => {
   try {
     const tutorial = Tutorial(req.body);
     const result = await tutorial.save();
-
     res.status(200).json({
       success: true,
       data: result
@@ -174,8 +174,6 @@ router.post('/', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
-
-  console.log(req.body)
 })
 
 // @route POST api/tutorial
